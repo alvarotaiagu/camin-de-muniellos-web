@@ -1,0 +1,33 @@
+<!-- ============ cabecera fija: la marca pequeña (el roble reducido), la navegación, el kilómetro del camín por el
+     que va la lectura (lo pone js/camin.js) y «Ver fechas». Transparente sobre la portada; con fondo en cuanto se baja ============ -->
+<header class="cab" id="cab">
+  <div class="cab__in">
+    <a class="marca" href="./" aria-label="Camín de Muniellos, a la portada">
+<!--parte:partes/marca.svg-->
+      <span class="marca__nombre">Camín de Muniellos</span>
+    </a>
+    <nav class="cab__nav" aria-label="Principal">
+      <a href="#casa">La casa</a>
+      <a href="#apartamentos">Apartamentos</a>
+      <a href="#distancias">A cuánto queda</a>
+      <a href="#muniellos">Muniellos</a>
+      <a href="#contacto">Cómo llegar</a>
+    </nav>
+    <p class="cab__km" id="cab-km" hidden><span class="vh">Vas por el </span>km <b class="cifra" id="cab-km-n">0</b></p>
+    <a class="btn btn--acento cab__reservar" href="#reservar">Ver fechas</a>
+    <button class="cab__menu" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-movil"><span class="vh">Menú</span><i></i><i></i></button>
+  </div>
+  <div class="menu-movil" id="menu-movil" aria-hidden="true">
+    <nav aria-label="Menú">
+      <a href="#casa">La casa</a>
+      <a href="#apartamentos">Los tres apartamentos</a>
+      <a href="#dentro">Por dentro</a>
+      <a href="#lugar">De la casa a Muniellos</a>
+      <a href="#distancias">A cuánto queda</a>
+      <a href="#muniellos">Entrar en Muniellos</a>
+      <a href="#reservar">Ver fechas</a>
+      <a href="#contacto">Cómo llegar</a>
+    </nav>
+    <p class="menu-movil__tel"><!--menu-contacto--></p>
+  </div>
+</header>

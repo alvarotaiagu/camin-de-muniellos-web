@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Prueba del módulo lugar · Camín de Muniellos</title>
+<!-- Página de prueba del agente Lugar 3D (no es parte de la web). Solo el módulo, con las variables de #lugar de
+     css/base.css copiadas a mano. Servir la carpeta de la web en el 8982 y abrir
+     http://localhost:8982/scripts/lugar-prueba.html  (añadir ?fps, ?hora=09:20, ?fecha=2026-06-21, ?sin-webgl). -->
+<style>
+  :root { --fondo: #F5F6F2; --texto: #17231C; --texto-suave: #4E5B53; --linea: #D3D8CC; --marca: #CE6B0F;
+          --letra-titular: "Readex Pro", system-ui, sans-serif; --letra-texto: "Inclusive Sans", system-ui, sans-serif; --letra-cifras: "Signika", system-ui, sans-serif;
+          --gutter: clamp(16px, 3.2vw, 40px); --ancho: 1360px; --cabecera: 0px; }
+  #lugar { --fondo: #101714; --superficie: #1B2620; --texto: #EEF1EA; --texto-suave: #AEBAB0; --linea: #2E3C33; --acento: #B25905; --acento-texto: #F0A256; --marca: #E07F24; --foco: #F0A256;
+           color-scheme: dark; background: var(--fondo); color: var(--texto); padding-top: 72px; }
+  html, body { overflow-x: clip; }
+  body { margin: 0; background: var(--fondo); color: var(--texto); font-family: var(--letra-texto); line-height: 1.6; }
+  .relleno { height: 110vh; display: grid; place-items: center; color: var(--texto-suave); }
+  #lugar > h2, #lugar > p { max-width: var(--ancho); margin: 0 auto; padding: 0 var(--gutter); font-family: var(--letra-titular); }
+  #lugar > p { margin-bottom: 28px; font-family: var(--letra-texto); color: var(--texto-suave); }
+</style>
+<link rel="stylesheet" href="../css/lugar.css">
+<script src="../js/ahora.js" defer></script>
+<script src="../js/lugar.js" defer></script>
+</head>
+<body>
+  <div class="relleno">(arriba: por dentro)</div>
+  <section id="lugar">
+    <h2>De la casa a Muniellos</h2>
+    <p>Texto de entrada de la sección (lo escribe Web).</p>
+    <div data-modulo="lugar"><div class="respaldo"><p>Respaldo de Web (sin JS): la lista de hitos del camín.</p></div></div>
+  </section>
+  <div class="relleno" id="despues">(abajo: a cuánto queda)</div>
+  <script>
+    addEventListener('DOMContentLoaded', function () {
+      var el = document.querySelector('[data-modulo="lugar"]');
+      var movimiento = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.__lugar = window.Camin.lugar.montar(el, { movimiento: movimiento, densidad: 'cargada' });
+    });
+  </script>
+</body>
+</html>

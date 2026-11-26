@@ -1,0 +1,21 @@
+{
+ "name": "Camín de Muniellos · Apartamentos rurales",
+ "short_name": "Camín de Muniellos",
+ "lang": "es",
+ "start_url": "./",
+ "display": "browser",
+ "background_color": "#F5F6F2",
+ "theme_color": "#F5F6F2",
+ "icons": [
+  {
+   "src": "marca/icono-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "marca/apple-touch-icon.png",
+   "sizes": "180x180",
+   "type": "image/png"
+  }
+ ]
+}

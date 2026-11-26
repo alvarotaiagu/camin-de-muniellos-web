@@ -1,0 +1,199 @@
+/* ------------------------------------------------------------------
+   Camín de Muniellos · lugar.css · «De la casa a Muniellos» (agente Lugar 3D)
+   Todo va bajo .lugar-mod (la clase que js/lugar.js pone en [data-modulo="lugar"]).
+   Lee las variables comunes de #lugar (las define Web, sección oscura); los
+   valores de detrás son de respaldo por si aún no existen. No define colores
+   de página. El escenario del 3D lleva sus propios colores (texto claro sobre
+   la imagen, con velos): no depende de la paleta de la página para leerse.
+   ------------------------------------------------------------------ */
+.lugar-mod {
+  --l-fondo: var(--fondo, #14110d);
+  --l-sup: var(--superficie, #1f1a14);
+  --l-texto: var(--texto, #f3ece0);
+  --l-suave: var(--texto-suave, #b9ad9b);
+  --l-marca: var(--lugar-trazo, var(--marca, #e08a2e));
+  --l-linea: var(--linea, rgba(243, 236, 224, .2));
+  --l-tit: var(--letra-titular, Georgia, 'Times New Roman', serif);
+  --l-txt: var(--letra-texto, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif);
+  --l-cif: var(--letra-cifras, var(--letra-texto, system-ui, -apple-system, 'Segoe UI', sans-serif));
+  --l-foco: var(--foco, #fff);
+  --lugar-arriba: var(--cabecera, 0px);
+  --lugar-pista: 640vh;
+  position: relative;
+  color: var(--l-texto);
+  font-family: var(--l-txt);
+}
+.lugar-mod *, .lugar-mod *::before, .lugar-mod *::after { box-sizing: border-box; }
+.lugar-mod p, .lugar-mod ol, .lugar-mod figure { margin: 0; }
+.lugar-mod ol { padding: 0; list-style: none; }
+.lugar-mod[data-modo="3d"] .lugar__planob { display: none; }
+.lugar-mod[data-modo="plano"] .lugar__pista { display: none; }
+.lugar__sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* ============ botones ============ */
+.lugar__btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .55em 1.25em;
+  border: 1px solid transparent; border-radius: 999px; background: var(--l-marca); color: #1a1208;
+  font: 600 .95rem/1.1 var(--l-txt); letter-spacing: .01em; cursor: pointer;
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease;
+}
+.lugar__btn:hover { transform: translateY(-1px); }
+.lugar__btn:active { transform: translateY(0) scale(.98); }
+.lugar__btn--suave { min-height: 40px; padding: .45em 1em; background: rgba(14, 12, 9, .62); color: #fbf6ec; border-color: rgba(255, 255, 255, .38); font-weight: 500; font-size: .85rem; }
+.lugar__btn--suave:hover { background: rgba(14, 12, 9, .82); border-color: rgba(255, 255, 255, .7); }
+.lugar-mod :focus-visible { outline: 2px solid var(--l-foco); outline-offset: 3px; }
+
+/* ============ el vuelo: pista alta y escenario pegado ============ */
+.lugar__pista { position: relative; height: var(--lugar-pista); }
+.lugar__escenario {
+  position: sticky; top: var(--lugar-arriba); height: calc(100vh - var(--lugar-arriba)); height: calc(100svh - var(--lugar-arriba));
+  min-height: 420px; overflow: hidden; background: #0e1013; color: #fbf6ec; isolation: isolate;
+}
+.lugar__escenario::before, .lugar__escenario::after { content: ''; position: absolute; left: 0; right: 0; z-index: 2; pointer-events: none; }
+.lugar__escenario::before { top: 0; height: 46%; background: linear-gradient(180deg, rgba(8, 7, 5, .66), rgba(8, 7, 5, .22) 55%, rgba(8, 7, 5, 0)); }
+.lugar__escenario::after { bottom: 0; height: 34%; background: linear-gradient(0deg, rgba(8, 7, 5, .78), rgba(8, 7, 5, .3) 60%, rgba(8, 7, 5, 0)); }
+.lugar__lienzo { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+.lugar__lienzo[hidden] { display: none; }
+
+/* mientras carga: el perfil del camino en el mismo hueco */
+.lugar__espera {
+  position: absolute; inset: 0; z-index: 6; display: grid; align-content: center; justify-items: center; gap: 1.2rem; padding: 12vh 4vw;
+  background: #14110d; transition: opacity .7s ease, visibility 0s linear .7s;
+}
+.lugar__espera-perfil { width: min(1100px, 100%); }
+.lugar__aviso { font-size: .95rem; color: #d8cdbb; min-height: 1.4em; }
+.lugar--listo .lugar__espera { opacity: 0; visibility: hidden; pointer-events: none; }
+
+/* el contador de km y el hito */
+.lugar__hud { position: absolute; z-index: 4; left: clamp(16px, 3.4vw, 48px); top: clamp(18px, 5vh, 52px); max-width: min(34rem, 78%); text-shadow: 0 1px 14px rgba(0, 0, 0, .55); pointer-events: none; }
+.lugar__km { display: flex; align-items: baseline; gap: .12em .4em; flex-wrap: wrap; font-family: var(--l-cif); line-height: .86; }
+.lugar__km-pre { font-size: clamp(.8rem, 1.2vw, 1rem); letter-spacing: .22em; text-transform: uppercase; opacity: .86; }
+.lugar__km-n { font-size: clamp(3.6rem, 10.5vw, 8.2rem); font-weight: 600; font-variant-numeric: tabular-nums lining-nums; letter-spacing: -.035em; }
+.lugar__km-de { font-size: clamp(.9rem, 1.5vw, 1.15rem); opacity: .82; font-variant-numeric: tabular-nums; }
+.lugar-mod .lugar__hito { margin-top: .55rem; display: grid; gap: .15rem; }
+.lugar__hito b { font: 500 clamp(1.35rem, 2.6vw, 2.1rem)/1.1 var(--l-tit); letter-spacing: -.01em; }
+.lugar__hito span { font-size: clamp(.85rem, 1.2vw, 1rem); opacity: .92; max-width: 42ch; }
+.lugar-mod .lugar__sig { margin-top: .5rem; font-size: .85rem; opacity: .82; }
+.lugar__sig::before { content: ''; display: inline-block; width: 1.4em; height: 1px; margin-right: .5em; vertical-align: middle; background: currentColor; opacity: .7; }
+
+.lugar__escenario > .lugar__cielo { position: absolute; z-index: 4; right: clamp(16px, 3.4vw, 48px); top: clamp(18px, 5vh, 52px); max-width: 24ch; text-align: right; font-size: .82rem; line-height: 1.35; opacity: .92; text-shadow: 0 1px 10px rgba(0, 0, 0, .6); }
+.lugar__botones { position: absolute; z-index: 5; right: clamp(16px, 3.4vw, 48px); bottom: 132px; display: flex; gap: .5rem; flex-wrap: wrap; justify-content: flex-end; }
+.lugar__creditos { position: absolute; z-index: 4; left: clamp(16px, 3.4vw, 48px); right: clamp(16px, 3.4vw, 48px); bottom: 10px; font-size: .7rem; line-height: 1.3; opacity: .78; }
+.lugar__fps { position: absolute; z-index: 7; left: 8px; top: 8px; padding: .3em .6em; background: rgba(0, 0, 0, .7); color: #9f9; font: 12px/1.3 ui-monospace, Consolas, monospace; border-radius: 4px; }
+
+/* la tira: el perfil en pequeño, lo andado en el color de la marca, y los hitos como botones */
+.lugar__tira { position: absolute; z-index: 4; left: clamp(16px, 3.4vw, 48px); right: clamp(16px, 3.4vw, 48px); bottom: 40px; height: 58px; }
+.lugar__tira svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.lugar__tira-area { fill: rgba(255, 255, 255, .16); }
+.lugar__tira-hecho { fill: var(--l-marca); opacity: .92; }
+.lugar__tira-linea { fill: none; stroke: rgba(255, 255, 255, .85); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.lugar__tira-cursor { position: absolute; top: -8px; bottom: -4px; width: 2px; margin-left: -1px; background: #fff; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0, 0, 0, .35); }
+.lugar__tira-hitos li { position: absolute; bottom: -14px; width: 0; }
+.lugar__tira-hitos button { position: absolute; left: -14px; bottom: -6px; width: 28px; height: 30px; padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
+.lugar__tira-hitos button::before { content: ''; position: absolute; left: 50%; bottom: 9px; width: 7px; height: 7px; margin-left: -3.5px; border-radius: 50%; background: rgba(255, 255, 255, .55); transition: transform .2s ease, background-color .2s ease; }
+.lugar__tira-hitos .es-pasado button::before { background: var(--l-marca); }
+.lugar__tira-hitos .es-actual button::before, .lugar__tira-hitos button:hover::before, .lugar__tira-hitos button:focus-visible::before { background: #fff; transform: scale(1.5); }
+.lugar__tira-hitos .es-casa button::before, .lugar__tira-hitos .es-destino button::before { width: 9px; height: 9px; margin-left: -4.5px; border-radius: 2px; }
+.lugar__tira-n { position: absolute; left: 50%; bottom: 74px; transform: translateX(-50%); padding: .3em .6em; border-radius: 4px; background: rgba(14, 12, 9, .86); font: 500 .74rem/1.1 var(--l-txt); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+.lugar__tira-hitos button:hover .lugar__tira-n, .lugar__tira-hitos button:focus-visible .lugar__tira-n { opacity: 1; }
+.lugar__tira-hitos li:first-child .lugar__tira-n { left: 0; transform: none; }
+.lugar__tira-hitos li:last-child .lugar__tira-n { left: auto; right: 0; transform: none; }
+
+/* rótulos de los hitos sobre el relieve */
+.lugar__rotulos { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+.lugar__rotulo { position: absolute; left: 0; top: 0; opacity: 0; transition: opacity .4s ease; will-change: transform; }
+.lugar__rotulo.es-visible { opacity: 1; }
+.lugar__rotulo > span { position: absolute; left: 0; bottom: 22px; transform: translateX(-50%); display: grid; justify-items: center; gap: .12em; padding: .34em .7em .38em; border-radius: 5px; background: rgba(14, 12, 9, .78); color: #fbf6ec; white-space: nowrap; }
+.lugar__rotulo > span::after { content: ''; position: absolute; left: 50%; top: 100%; width: 1px; height: 22px; background: rgba(255, 255, 255, .8); }
+.lugar__rotulo b { font: 500 .92rem/1.1 var(--l-tit); }
+.lugar__rotulo small { font: 400 .7rem/1.1 var(--l-txt); opacity: .85; font-variant-numeric: tabular-nums; }
+.lugar__rotulo--casa > span, .lugar__rotulo--destino > span { background: var(--l-marca); color: #1a1208; }
+.lugar__rotulo--casa b, .lugar__rotulo--destino b { font-size: 1.05rem; font-weight: 600; }
+.lugar__rotulo--reserva > span { background: none; padding: 0; text-shadow: 0 1px 12px rgba(0, 0, 0, .75); }
+.lugar__rotulo--reserva > span::after { display: none; }
+.lugar__rotulo--reserva b { font-size: clamp(1.05rem, 2vw, 1.5rem); letter-spacing: .02em; }
+
+/* ============ plan B: el perfil del camino ============ */
+/* El módulo va a sangre (así lo monta Web); el plan B y las fuentes se alinean con el titular de la sección. */
+.lugar__planob, .lugar__fuente { width: 100%; max-width: var(--ancho, 1360px); margin-inline: auto; padding-inline: var(--gutter, clamp(16px, 3.2vw, 40px)); }
+.lugar-mod { padding-bottom: clamp(2rem, 5vw, 4rem); }
+.lugar__planob { display: grid; gap: clamp(1.4rem, 3vw, 2.4rem); margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+.lugar__cifras { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem clamp(1rem, 3vw, 2.5rem); }
+.lugar__cifras p { display: grid; gap: .3rem; align-content: start; padding-top: .8rem; border-top: 1px solid var(--l-linea); }
+.lugar__cifras b { font: 600 clamp(1.9rem, 4.6vw, 3.3rem)/1 var(--l-cif); letter-spacing: -.03em; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+.lugar__cifras span { font-size: .9rem; line-height: 1.3; color: var(--l-suave); }
+.lugar__perfil { display: grid; gap: .6rem; }
+.lugar__perfil-marco { overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+.lugar__svg { display: block; width: 100%; min-width: 760px; height: auto; overflow: visible; touch-action: pan-y; }
+.lugar__espera-perfil .lugar__svg { min-width: 0; }
+.lugar__eje { stroke: var(--l-linea); stroke-width: 1; }
+.lugar__eje-t { fill: var(--l-suave); font: 400 11.5px var(--l-txt); font-variant-numeric: tabular-nums; }
+.lugar__marca-km { stroke: var(--l-suave); stroke-width: 1; opacity: .6; }
+.lugar__marca-km.es-cinco { opacity: 1; stroke-width: 1.5; }
+.lugar__perfil-area { fill: var(--l-marca); opacity: .2; }
+.lugar__perfil-linea { fill: none; stroke: var(--l-marca); stroke-width: 2.6; stroke-linejoin: round; }
+.lugar__mojon line { stroke: var(--l-suave); stroke-width: 1; opacity: .55; }
+.lugar__mojon circle { fill: var(--l-fondo); stroke: var(--l-texto); stroke-width: 1.6; }
+.lugar__mojon text { fill: var(--l-texto); font: 500 13px var(--l-txt); }
+.lugar__mojon-km { fill: var(--l-suave); font-weight: 400; font-size: 11px; font-variant-numeric: tabular-nums; }
+.lugar__mojon.es-casa circle, .lugar__mojon.es-destino circle { fill: var(--l-marca); stroke: var(--l-marca); }
+.lugar__mojon.es-casa text, .lugar__mojon.es-destino text { font-weight: 700; font-size: 14px; }
+.lugar__mojon.es-actual line { stroke: var(--l-marca); opacity: 1; }
+.lugar__mojon.es-actual circle { stroke: var(--l-marca); stroke-width: 2.6; }
+.lugar__cursor line { stroke: var(--l-texto); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.lugar__cursor circle { fill: var(--l-texto); stroke: var(--l-marca); stroke-width: 3; }
+.lugar__perfil figcaption, .lugar__planta figcaption { font-size: .82rem; line-height: 1.45; color: var(--l-suave); max-width: 70ch; }
+.lugar__espera .lugar__eje { stroke: rgba(243, 236, 224, .18); }
+.lugar__espera .lugar__eje-t { fill: #b9ad9b; }
+.lugar__espera .lugar__cursor { display: none; }
+
+.lugar__recorre { display: grid; gap: .6rem; }
+.lugar__regla { display: grid; gap: .5rem; }
+.lugar__regla-tit { font: 500 .78rem/1 var(--l-txt); letter-spacing: .16em; text-transform: uppercase; color: var(--l-suave); }
+.lugar__regla input { width: 100%; height: 44px; margin: 0; accent-color: var(--l-marca); cursor: pointer; }
+.lugar__lectura { font: 500 clamp(1.05rem, 2vw, 1.35rem)/1.3 var(--l-tit); min-height: 1.3em; font-variant-numeric: tabular-nums; }
+
+.lugar__abajo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(200px, 300px); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+.lugar__lista { columns: 2; column-gap: clamp(1.2rem, 3vw, 2.5rem); }
+.lugar__lista li { break-inside: avoid; border-top: 1px solid var(--l-linea); }
+.lugar__lista button { display: grid; grid-template-columns: 4.6em minmax(0, 1fr) auto; align-items: baseline; gap: .1rem .7rem; width: 100%; min-height: 44px; padding: .6rem .2rem; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.lugar__lista button:hover b { color: var(--l-marca); }
+.lugar__lista-km, .lugar__lista-cota { font: 400 .82rem var(--l-cif); font-variant-numeric: tabular-nums; color: var(--l-suave); }
+.lugar__lista b { font: 500 1.02rem/1.2 var(--l-txt); transition: color .18s ease; }
+.lugar__lista small { grid-column: 2 / -1; font-size: .8rem; line-height: 1.35; color: var(--l-suave); }
+.lugar__lista .es-casa b, .lugar__lista .es-destino b { font-weight: 700; }
+.lugar__lista .es-actual { border-top-color: var(--l-marca); }
+.lugar__lista .es-actual .lugar__lista-km { color: var(--l-marca); }
+.lugar__planta { display: grid; gap: .6rem; }
+.lugar__planta svg { display: block; width: 100%; max-width: 300px; height: auto; overflow: visible; }
+.lugar__planta-linea { fill: none; stroke: var(--l-marca); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+.lugar__planta-hito { fill: var(--l-fondo); stroke: var(--l-texto); stroke-width: 1.3; }
+.lugar__planta-hito.es-casa, .lugar__planta-hito.es-destino { fill: var(--l-marca); stroke: var(--l-marca); }
+.lugar__planta-t { fill: var(--l-texto); font: 500 11.5px var(--l-txt); }
+.lugar__planta-n { fill: var(--l-suave); font: 600 11px var(--l-txt); }
+.lugar__planta-flecha { fill: none; stroke: var(--l-suave); stroke-width: 1.3; }
+.lugar__planta-cursor { fill: var(--l-texto); stroke: var(--l-marca); stroke-width: 3; }
+.lugar__planob > .lugar__cielo { font-size: .92rem; line-height: 1.5; color: var(--l-suave); max-width: 70ch; }
+.lugar__acciones:empty, .lugar__acciones:has(> [hidden]:only-child) { display: none; }
+.lugar-mod .lugar__fuente { margin-top: clamp(1.2rem, 3vw, 2rem); font-size: .76rem; line-height: 1.5; color: var(--l-suave); }
+
+/* ============ estrecho ============ */
+@media (max-width: 820px) {
+  .lugar-mod { --lugar-pista: 540vh; }
+  .lugar__cifras { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lugar__abajo { grid-template-columns: minmax(0, 1fr); }
+  .lugar__lista { columns: 1; }
+  .lugar__planta svg { max-width: 240px; }
+  .lugar__escenario > .lugar__cielo { top: auto; bottom: 150px; left: 16px; right: 16px; max-width: none; text-align: left; font-size: .76rem; }
+  .lugar__botones { bottom: 112px; left: 16px; right: 16px; justify-content: flex-start; }
+  .lugar__btn--suave { min-height: 36px; font-size: .8rem; }
+  .lugar__tira { height: 46px; bottom: 44px; }
+  .lugar__tira-hitos button { width: 22px; left: -11px; }
+  .lugar__tira-hitos li:not(.es-casa):not(.es-destino):not(.es-cruce) { display: none; }
+  .lugar__creditos { font-size: .62rem; bottom: 6px; }
+  .lugar__sig { display: none; }
+  .lugar__rotulo b { font-size: .82rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lugar-mod *, .lugar-mod *::before, .lugar-mod *::after { transition: none !important; }
+}

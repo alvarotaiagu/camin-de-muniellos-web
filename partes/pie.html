@@ -1,0 +1,55 @@
+<!-- ============ pie: el camín llega. La portada abrió con UN roble en el km 0; el pie cierra con el robledal: el mismo
+     roble (el mismo dibujo, <use> del de la portada, con la hoja de hoy) repetido hasta hacer bosque, y el último mojón,
+     Tablizas. La línea del camín acaba aquí (js/camin.js). ============ -->
+<footer class="pie" id="pie">
+  <div class="pie__bosque" id="bosque" aria-hidden="true">
+<!--bosque-->
+    <div class="pie__suelo" id="suelo-fin"></div>
+  </div>
+  <div class="env">
+    <p class="pie__llegada"><span class="pie__km cifra">km {{KM_TOTAL}}</span> <span class="pie__llegada-txt">Tablizas. Aquí empieza Muniellos.</span></p>
+    <div class="pie__cols">
+      <div>
+        <h2 class="pie__h">Dónde</h2>
+        <p><!--pie-donde--></p>
+        <p><a href="#contacto">Cómo llegar</a></p>
+      </div>
+      <div>
+        <h2 class="pie__h">Reservas</h2>
+        <p><!--pie-contacto--></p>
+      </div>
+      <div>
+        <h2 class="pie__h">La casa</h2>
+        <p><a href="#apartamentos">Los tres apartamentos</a><br><a href="#dentro">Visita 360</a><br><a href="#distancias">A cuánto queda</a><br><a href="#muniellos">Entrar en Muniellos</a></p>
+      </div>
+      <div>
+        <h2 class="pie__h">Síguelos</h2>
+        <p><!--pie-redes--></p>
+      </div>
+    </div>
+<!--creditos-->
+    <div class="pie__legal">
+      <nav aria-label="Legal"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a><a href="accesibilidad.html">Accesibilidad</a><button type="button" id="abrir-cookies">Preferencias de cookies</button></nav>
+      <p><!--pie-titular--></p>
+    </div>
+  </div>
+</footer>
+
+<div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Sin cookies de análisis ni de publicidad: solo se guarda que has visto este aviso. La visita 360 y el mapa son de Google y solo se cargan si los pides. <a href="cookies.html">Más información</a></p>
+  <div class="cookies__acc">
+    <button class="btn btn--acento" type="button" id="ck-si">Entendido</button>
+    <button class="btn btn--linea" type="button" id="ck-no">Solo lo necesario</button>
+  </div>
+</div>
+
+<!-- el foco del teclado: un mojón (arriba redondo, abajo recto) sobre la línea de suelo del logo (lo coloca main.js) -->
+<svg class="foco-mojon" id="foco-mojon" aria-hidden="true" focusable="false"><path class="foco-mojon__marco"/><path class="foco-mojon__suelo"/></svg>
+
+<!-- MANDO DE MAQUETA (no viaja al cliente): solo con ?revision -->
+<div class="mando" id="mando" role="group" aria-label="Dos versiones de la misma web" hidden>
+  <span class="mando__eti">Versión</span>
+  <button type="button" data-densidad="camin" aria-pressed="true">Camín</button>
+  <button type="button" data-densidad="sobria" aria-pressed="false">Sobria</button>
+</div>
+<!-- fin del MANDO DE MAQUETA -->

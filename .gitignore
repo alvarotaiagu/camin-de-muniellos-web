@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.tmp
+# Privado: no va al repo (descargas de su web y de portales, y datos del IGN que se regeneran con los scripts)
+ref/
+pruebas/
+ENCARGO.md
+PENDIENTES.md

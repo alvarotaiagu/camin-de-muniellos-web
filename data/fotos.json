@@ -1,0 +1,77 @@
+{
+ "_": "Galería por estancias, PREPARADA y sin montar: con las fotos que hay no da para una galería. Cuando la casa mande las originales, se añaden aquí (y en scripts/fotos.py) y se monta con la receta de ../apartamentos-alba-somiedo-web (galeria() en construir.mjs).",
+ "aviso": "",
+ "estancias": [
+  {
+   "id": "fuera",
+   "nombre": "La casa por fuera",
+   "corto": "Fuera",
+   "texto": "Piedra, corredor de madera, pizarra y hórreo.",
+   "fotos": [
+    {
+     "n": "fachada",
+     "alt": "La fachada de la casa, con el corredor de madera y el hórreo"
+    },
+    {
+     "n": "jardin",
+     "alt": "El jardín con barbacoa de obra, mesa de madera y casita de juegos"
+    },
+    {
+     "n": "casa-nevada",
+     "alt": "La casa con nieve en el tejado y en el corredor"
+    }
+   ]
+  },
+  {
+   "id": "salon",
+   "nombre": "Salón y cocina",
+   "corto": "Salón",
+   "texto": "",
+   "fotos": [
+    {
+     "n": "salon-verde",
+     "alt": "Salón de paredes verde limón con sofá y salida a la terraza"
+    }
+   ]
+  },
+  {
+   "id": "dormitorios",
+   "nombre": "Dormitorios",
+   "corto": "Dormir",
+   "texto": "",
+   "fotos": [
+    {
+     "n": "dormitorio-mecedora",
+     "alt": "Dormitorio con cama de forja blanca y la terraza con mecedora"
+    },
+    {
+     "n": "dormitorio-madera",
+     "alt": "Dormitorio con cabecero de madera oscura y la puerta abierta a la terraza"
+    },
+    {
+     "n": "dormitorio-azul",
+     "alt": "Dormitorio de pared azul con salida a la terraza"
+    }
+   ]
+  },
+  {
+   "id": "banos",
+   "nombre": "Baños",
+   "corto": "Baños",
+   "texto": "",
+   "fotos": []
+  },
+  {
+   "id": "terrazas",
+   "nombre": "Terrazas",
+   "corto": "Terraza",
+   "texto": "",
+   "fotos": [
+    {
+     "n": "terraza-valle",
+     "alt": "Terraza de madera con mesa y sillas, frente al valle"
+    }
+   ]
+  }
+ ]
+}

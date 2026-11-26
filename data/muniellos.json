@@ -1,0 +1,420 @@
+{
+ "_": "Única fuente de datos del negocio para construir.mjs. Todo sale de ref/DATOS-MUNIELLOS.md (su web, 2026-11-26), de la página oficial del Principado sobre Muniellos (ref/raw/muniellos-oficial.txt) y de la portada de su web (ref/raw/portada.html). Nada inventado.",
+ "nombre": "Camín de Muniellos",
+ "tipo": "Apartamentos rurales",
+ "categoria": "3 llaves",
+ "registro": "AR.643.AS",
+ "anio": 2008,
+ "web": "https://camindemuniellos.com",
+ "motor": {
+  "buscar": "https://camindemuniellos.com/resultados-de-busqueda/",
+  "campos": {
+   "entrada": "mphb_check_in_date",
+   "salida": "mphb_check_out_date",
+   "adultos": "mphb_adults",
+   "ninos": "mphb_children"
+  },
+  "formato": "aaaa-mm-dd",
+  "adultos": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "ninos": [
+   0,
+   1,
+   2
+  ]
+ },
+ "lugar": {
+  "calle": "Penlés, n.º 4",
+  "cp": "33814",
+  "municipio": "Cangas del Narcea",
+  "provincia": "Asturias",
+  "pueblo": "Penlés"
+ },
+ "contacto": {
+  "telefono": {
+   "tel": "+34669000947",
+   "texto": "669 00 09 47"
+  },
+  "correo": "info@camindemuniellos.com",
+  "whatsapp": {
+   "numero": "34669000947",
+   "fuente": "el botón de chat de WhatsApp de su propia web lleva este número (ref/raw/portada.html)",
+   "confirmado": false
+  },
+  "instagram": "https://www.instagram.com/camindemuniellos/",
+  "facebook": "https://www.facebook.com/camindemuniellos"
+ },
+ "titular": {
+  "nombre": "Celia del Río Rodríguez",
+  "nif": "09445432E",
+  "domicilio": "Penlés, n.º 4, 33814 Cangas del Narcea (Asturias)"
+ },
+ "precioDesde": 80,
+ "apartamentos": [
+  {
+   "id": "carujo",
+   "nombre": "Carujo",
+   "mphb": 1026,
+   "cama": 150,
+   "m2": 41,
+   "personas": 4,
+   "color": "verde limón",
+   "pagina": "https://camindemuniellos.com/apartamentos/carujo/",
+   "decoracion": "Tonos verde limón y muebles de estilo colonial.",
+   "foto": "salon-verde",
+   "fotoAlt": "Salón de paredes verde limón con sofá, butaca de mimbre y la puerta abierta a la terraza",
+   "fotoPie": "Un salón en verde limón, con salida a la terraza (foto de su ficha en Turismo Asturias)."
+  },
+  {
+   "id": "fonrin",
+   "nombre": "Fonrín",
+   "mphb": 1037,
+   "cama": 135,
+   "m2": 39,
+   "personas": 4,
+   "color": "azul",
+   "pagina": "https://camindemuniellos.com/apartamentos/fonrin/",
+   "decoracion": "Corte clásico, líneas rectas, tonos tierra, esparto y azul en las paredes.",
+   "foto": "dormitorio-azul",
+   "fotoAlt": "Dormitorio de pared azul con cabecero de madera oscura y la puerta abierta a la terraza",
+   "fotoPie": "Un dormitorio de pared azul, con salida a la terraza (foto de su ficha en Turismo Asturias)."
+  },
+  {
+   "id": "xelin",
+   "nombre": "Xelín",
+   "mphb": 1039,
+   "cama": 180,
+   "m2": 42,
+   "personas": 4,
+   "color": "arena",
+   "pagina": "https://camindemuniellos.com/apartamentos/xelin/",
+   "decoracion": "Tonos arena, mezcla de colonial y escandinavo.",
+   "foto": "dormitorio-mecedora",
+   "fotoAlt": "Dormitorio en tonos arena con cama de forja blanca y, al fondo, la terraza con una mecedora frente al valle",
+   "fotoPie": "Un dormitorio en tonos arena: la cama, la mecedora de la terraza y el valle."
+  }
+ ],
+ "comun": "Los tres son para cuatro personas: dormitorio independiente, sofá cama de dos plazas en el salón, cocina completa, baño con ducha de hidromasaje y terraza privada con vistas al valle.",
+ "servicios": [
+  {
+   "grupo": "Dentro de cada apartamento",
+   "lista": [
+    {
+     "icono": "cocina",
+     "nombre": "Cocina completa",
+     "detalle": "Vitrocerámica, frigorífico, microondas con grill, cafetera, tostadora y exprimidor"
+    },
+    {
+     "icono": "ducha",
+     "nombre": "Ducha de hidromasaje",
+     "detalle": "Con secador, toallas, gel y champú bio"
+    },
+    {
+     "icono": "lavadora",
+     "nombre": "Lavadora y plancha",
+     "detalle": "Con tabla de planchar y tendedero"
+    },
+    {
+     "icono": "calefaccion",
+     "nombre": "Calefacción independiente",
+     "detalle": "Cada apartamento regula la suya"
+    },
+    {
+     "icono": "wifi",
+     "nombre": "Wifi gratis",
+     "detalle": "Y televisión en el salón"
+    },
+    {
+     "icono": "juegos",
+     "nombre": "Juegos de mesa",
+     "detalle": "Se piden en la casa"
+    }
+   ]
+  },
+  {
+   "grupo": "Fuera, para todos",
+   "lista": [
+    {
+     "icono": "barbacoa",
+     "nombre": "Barbacoa y paellera",
+     "detalle": "En el jardín, con mesa de madera"
+    },
+    {
+     "icono": "jardin",
+     "nombre": "Jardín con mobiliario",
+     "detalle": "Y una terraza exterior común"
+    },
+    {
+     "icono": "aparcar",
+     "nombre": "Aparcamiento privado",
+     "detalle": "Y recepción con una pequeña biblioteca"
+    }
+   ]
+  },
+  {
+   "grupo": "Si venís con niños",
+   "lista": [
+    {
+     "icono": "cuna",
+     "nombre": "Cuna sin coste",
+     "detalle": "Para menores de 2 años"
+    },
+    {
+     "icono": "infantil",
+     "nombre": "Zona infantil",
+     "detalle": "Con casita de juegos en el jardín"
+    },
+    {
+     "icono": "huevo",
+     "nombre": "La granja de la casa",
+     "detalle": "Los niños recogen los huevos"
+    }
+   ]
+  }
+ ],
+ "condiciones": {
+  "entrada": "17:00",
+  "salida": "12:00",
+  "cancelacion": [
+   {
+    "cuando": "Más de 15 días antes",
+    "devuelven": "el 100 %"
+   },
+   {
+    "cuando": "Entre 15 y 7 días antes",
+    "devuelven": "el 50 %"
+   },
+   {
+    "cuando": "En los 7 días previos",
+    "devuelven": "nada"
+   }
+  ],
+  "pago": "El pago se hace en su web: tarjeta, Bizum o PayPal. Sin fianza.",
+  "normas": [
+   "No se admiten mascotas",
+   "Sin fiestas",
+   "No más gente de la reservada"
+  ],
+  "supletoria": "Cama supletoria sin contratar: 10 € por noche."
+ },
+ "visita": {
+  "url": "https://www.google.com/maps/embed?pb=!4v1678187703430!6m8!1m7!1sCAoSLEFGMVFpcE1uRVRFOUYtdkljd2lneXIxX3Q5ZGZQQzljcUVveV8zTklxREFf!2m2!1d43.1516784!2d-6.5753796!3f31.733612875288756!4f-8.565123168591285!5f0.7820865974627469"
+ },
+ "muniellos": {
+  "oficial": "https://miprincipado.asturias.es/-/dboid-6269000001646778499500",
+  "leido": "2026-11-26",
+  "cupo": 20,
+  "telefonos": "012 o 985 27 91 00",
+  "tablizas": "691 88 59 89",
+  "confirmar": [
+   23,
+   15
+  ],
+  "horario": [
+   {
+    "meses": [
+     1
+    ],
+    "texto": "Enero",
+    "abre": "8:45",
+    "cierra": "17:15"
+   },
+   {
+    "meses": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "texto": "De febrero a mayo",
+    "abre": "8:45",
+    "cierra": "18:15"
+   },
+   {
+    "meses": [
+     6,
+     7,
+     8,
+     9
+    ],
+    "texto": "De junio a septiembre",
+    "abre": "8:45",
+    "cierra": "19:15"
+   },
+   {
+    "meses": [
+     10
+    ],
+    "texto": "Octubre",
+    "abre": "8:45",
+    "cierra": "18:15"
+   },
+   {
+    "meses": [
+     11,
+     12
+    ],
+    "texto": "Noviembre y diciembre",
+    "abre": "8:45",
+    "cierra": "17:15"
+   }
+  ],
+  "cerrado": "Cerrado el 1 y el 6 de enero, el 24, 25 y 31 de diciembre y todos los martes de enero, febrero, marzo, noviembre y diciembre (menos el 8 de diciembre si cae en martes).",
+  "mesesMartes": [
+   1,
+   2,
+   3,
+   11,
+   12
+  ],
+  "rutas": [
+   {
+    "nombre": "Ruta de Fonculebrera",
+    "forma": "Senda circular",
+    "km": "20 km",
+    "horas": "De 7 a 9 horas",
+    "dificultad": "Alta",
+    "detalle": "Tramos de mucho desnivel, sin barandillas. El Principado la desaconseja para niños y para quien no esté en forma."
+   },
+   {
+    "nombre": "Ruta del río",
+    "forma": "Ida y vuelta junto al río",
+    "km": "De 12 a 14 km",
+    "horas": "De 4 a 5 horas",
+    "dificultad": "Media",
+    "detalle": "Por el fondo del valle. Desde las dos se llega a la primera laguna, la de la Isla; a las demás no se puede pasar."
+   }
+  ],
+  "llevar": [
+   "La autorización y el DNI de cada uno",
+   "Comida y agua: dentro no hay bar, tienda ni fuente",
+   "Calzado y ropa de monte"
+  ],
+  "nota": "Un permiso por persona y año. No se puede entrar con animales."
+ },
+ "casa": {
+  "historia": "En 2008, una casa cuidadosamente restaurada dio lugar a Camín de Muniellos. Los apartamentos llevan el nombre de las casas donde nacieron y se criaron los padres de la familia: Carujo, Fonrín y Xelín.",
+  "materiales": [
+   {
+    "nombre": "Piedra",
+    "detalle": "La planta baja, de mampostería, con portón y ventanas de madera."
+   },
+   {
+    "nombre": "Corredor",
+    "detalle": "De madera, a todo lo largo de la primera planta, con geranios."
+   },
+   {
+    "nombre": "Pizarra",
+    "detalle": "El tejado, con cuatro buhardillas."
+   },
+   {
+    "nombre": "Hórreo",
+    "detalle": "De madera sobre pegollos, pegado a la casa."
+   }
+  ]
+ },
+ "deCasa": [
+  {
+   "icono": "miel",
+   "nombre": "Miel «El Tío Ángel»",
+   "detalle": "De las colmenas de la familia."
+  },
+  {
+   "icono": "granja",
+   "nombre": "Granja propia",
+   "detalle": "Vacas, cerdos y gallinas."
+  },
+  {
+   "icono": "sol",
+   "nombre": "Placas solares",
+   "detalle": "Calientan el agua de la casa."
+  },
+  {
+   "icono": "hoja",
+   "nombre": "Club Ecoturismo en España",
+   "detalle": "En una Reserva de la Biosfera."
+  }
+ ],
+ "llegar": [
+  {
+   "desde": "Desde Oviedo",
+   "sitio": "oviedo",
+   "texto": "A-63 hasta Cornellana y, desde allí, la AS-15, el corredor del Narcea."
+  },
+  {
+   "desde": "Desde el aeropuerto de Asturias",
+   "sitio": "aeropuerto",
+   "texto": ""
+  },
+  {
+   "desde": "Desde Lugo",
+   "sitio": "",
+   "texto": "Por la AS-210."
+  },
+  {
+   "desde": "Desde el sur",
+   "sitio": "",
+   "texto": "AS-213 por el puerto de Leitariegos, o AS-15 por el túnel del Rañadoiro."
+  }
+ ],
+ "libro": [
+  {
+   "texto": "Al apartamento no le falta de nada, mimado al detalle y en cada rincón hay puesto mucho cariño para disfrutarlo.",
+   "firma": "Agustín y Mar",
+   "fecha": "11 de julio de 2020",
+   "apto": "carujo"
+  },
+  {
+   "texto": "Muchas gracias, nos vamos con la vista descansada en el verde, los oídos saciados de silencio y agradecidos de una gente que siempre tiene un momento para compartir unas palabras.",
+   "firma": "Angelín, Susana y Ángel",
+   "fecha": "21 de agosto de 2013",
+   "apto": "carujo"
+  },
+  {
+   "texto": "Un paisaje inigualable, un trato impresionante, ¿qué más pedir? Ha sido una gran experiencia.",
+   "firma": "Txaber y Laura",
+   "fecha": "20 de diciembre de 2013",
+   "apto": "carujo"
+  },
+  {
+   "texto": "Ha sido una semana fantástica que nos ha sabido a muy poquito. El apartamento genial y la ubicación increíble, ¡qué tranquilidad!",
+   "firma": "Merche, Mariano, Lara y Alejandro",
+   "fecha": "12 de agosto de 2018",
+   "apto": "fonrin"
+  },
+  {
+   "texto": "Hemos estado cuatro días, 12 personas en los 3 apartamentos y cada uno tenía su espacio. Muchas gracias por todo. Hasta pronto. Desde Álava.",
+   "firma": "Leticia, Jose, Yeray, Janire, Gaizka, Julen",
+   "fecha": "4 de abril de 2010",
+   "apto": "fonrin"
+  },
+  {
+   "texto": "Tanto Celia y Jesús, como toda su familia, nos acogieron fenomenal y nos hicieron disfrutar de una semana fantástica. Nos aconsejaron muchos sitios de interés, rutas, restaurantes...",
+   "firma": "Fran, Sonia, Axel y Drey (Valencia)",
+   "fecha": "junio de 2019",
+   "apto": "fonrin"
+  },
+  {
+   "texto": "El entorno perfecto, es una delicia disfrutar del silencio que hay por las noches y el paisaje por la ventana. Afortunadamente el tiempo también nos respetó y Muniellos es maravilloso.",
+   "firma": "María y Román",
+   "fecha": "17 de marzo de 2013",
+   "apto": "xelin"
+  },
+  {
+   "texto": "Si no me voy llorando es porque sé que volveré, a seguir conociendo sus mágicos rincones y llenarme de tranquila energía.",
+   "firma": "Carmen y Antonio",
+   "fecha": "1 de noviembre de 2015",
+   "apto": "xelin"
+  },
+  {
+   "texto": "Esto es un «hasta luego», porque este es un lugar para estar, no solo para conocer y pasar.",
+   "firma": "Gema y Antonio",
+   "fecha": "15 de mayo de 2016",
+   "apto": "xelin"
+  }
+ ]
+}

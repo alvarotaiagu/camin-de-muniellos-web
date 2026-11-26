@@ -1,0 +1,209 @@
+[
+ {
+  "nombre": "fachada",
+  "ancho": 1920,
+  "alto": 1280,
+  "anchos": [
+   640,
+   1024,
+   1440,
+   1920
+  ],
+  "origen": "Camín de Muniellos (su web)",
+  "fuente": "foto-web-scaled.jpg"
+ },
+ {
+  "nombre": "dormitorio-mecedora",
+  "ancho": 1920,
+  "alto": 1440,
+  "anchos": [
+   480,
+   800,
+   1280,
+   1920
+  ],
+  "origen": "Camín de Muniellos (su web)",
+  "fuente": "Camin-de-Muniellos-dormitorio-scaled.jpg"
+ },
+ {
+  "nombre": "terraza-valle",
+  "ancho": 1920,
+  "alto": 1080,
+  "anchos": [
+   480,
+   800,
+   1280,
+   1920
+  ],
+  "origen": "Camín de Muniellos (su web)",
+  "fuente": "IMG_20210224_135019_1-scaled.jpg"
+ },
+ {
+  "nombre": "dormitorio-madera",
+  "ancho": 1920,
+  "alto": 1080,
+  "anchos": [
+   480,
+   800,
+   1280,
+   1920
+  ],
+  "origen": "Camín de Muniellos (su web)",
+  "fuente": "DORMTORIO-PORTADA-scaled.jpg"
+ },
+ {
+  "nombre": "jardin",
+  "ancho": 1920,
+  "alto": 1080,
+  "anchos": [
+   480,
+   800,
+   1280,
+   1920
+  ],
+  "origen": "Camín de Muniellos (su web)",
+  "fuente": "jardin-scaled.jpg"
+ },
+ {
+  "nombre": "colmenar",
+  "ancho": 1920,
+  "alto": 1440,
+  "anchos": [
+   480,
+   800,
+   1280,
+   1920
+  ],
+  "origen": "Camín de Muniellos (su web)",
+  "fuente": "Colmenar-El-tio-Angel-Miel-de-Asturias-scaled.jpeg"
+ },
+ {
+  "nombre": "miel-tarro",
+  "ancho": 1170,
+  "alto": 782,
+  "anchos": [
+   480,
+   800,
+   1170
+  ],
+  "origen": "Camín de Muniellos (su web)",
+  "fuente": "Miel-El-tio-Angel-Miel-de-Asturias.jpeg"
+ },
+ {
+  "nombre": "miel-puesto",
+  "ancho": 1078,
+  "alto": 1078,
+  "anchos": [
+   480,
+   800,
+   1078
+  ],
+  "origen": "Camín de Muniellos (su web)",
+  "fuente": "El-Tio-Angel-Miel-de-Asturias.jpeg"
+ },
+ {
+  "nombre": "apicultores",
+  "ancho": 1170,
+  "alto": 1129,
+  "anchos": [
+   480,
+   800,
+   1170
+  ],
+  "origen": "Camín de Muniellos (su web)",
+  "fuente": "IMG_8582.jpg"
+ },
+ {
+  "nombre": "salon-verde",
+  "ancho": 708,
+  "alto": 449,
+  "anchos": [
+   480,
+   708
+  ],
+  "origen": "Turismo Asturias (ficha del alojamiento), sin marca",
+  "fuente": "ta-3.jpg"
+ },
+ {
+  "nombre": "dormitorio-azul",
+  "ancho": 708,
+  "alto": 449,
+  "anchos": [
+   480,
+   708
+  ],
+  "origen": "Turismo Asturias (ficha del alojamiento), sin marca",
+  "fuente": "ta-4.jpg"
+ },
+ {
+  "nombre": "casa-nevada",
+  "ancho": 708,
+  "alto": 449,
+  "anchos": [
+   480,
+   708
+  ],
+  "origen": "Turismo Asturias (ficha del alojamiento), sin marca",
+  "fuente": "ta-5.jpg"
+ },
+ {
+  "nombre": "muniellos-valle",
+  "ancho": 1280,
+  "alto": 960,
+  "anchos": [
+   480,
+   800,
+   1280
+  ],
+  "origen": "Wikimedia Commons",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Reserva_Natural_Integral_de_Muniellos_(Asturias,_Espa%C3%B1a)_10.JPG"
+ },
+ {
+  "nombre": "muniellos-rio",
+  "ancho": 1280,
+  "alto": 850,
+  "anchos": [
+   480,
+   800,
+   1280
+  ],
+  "origen": "Wikimedia Commons",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Bosque_de_Muniellos_01.JPG"
+ },
+ {
+  "nombre": "corias",
+  "ancho": 1280,
+  "alto": 857,
+  "anchos": [
+   480,
+   800,
+   1280
+  ],
+  "origen": "Wikimedia Commons",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Parador_de_Corias_4.jpg"
+ },
+ {
+  "nombre": "cangas",
+  "ancho": 1280,
+  "alto": 853,
+  "anchos": [
+   480,
+   800,
+   1280
+  ],
+  "origen": "Wikimedia Commons",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Cangas_del_Narcea,_Asturias.jpg"
+ },
+ {
+  "nombre": "leitariegos",
+  "ancho": 1280,
+  "alto": 960,
+  "anchos": [
+   480,
+   800,
+   1280
+  ],
+  "origen": "Wikimedia Commons",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Leitariegos,_Cangas_del_Narcea,_Asturias.jpg"
+ }
+]
