@@ -1034,13 +1034,24 @@
       volumenes(m.tablizas, recepcion, function () { return '#6f757d'; }, false);
 
       /* --- la carretera: una cinta apoyada en la malla, con lo andado en el color de la marca y lo que queda en claro --- */
-      var ANCHO = hiDef ? 7 : 9, nP = cinta.length, cPos = new Float32Array(nP * 9), cIdx = [], kmCinta = new Float32Array(nP);
+      var ANCHO = hiDef ? 7 : 9, nP = cinta.length, cPos = new Float32Array(nP * 9), cIdx = [], kmCinta = new Float32Array(nP), cNor = new Float32Array(nP * 2), anchoAct = ANCHO;
       for (i = 0; i < nP; i++) {
         var pa = cinta[Math.max(0, i - 1)], pb = cinta[Math.min(nP - 1, i + 1)], tx = pb[0] - pa[0], tz = pb[1] - pa[1], tl = Math.hypot(tx, tz) || 1;
         var nxr = -tz / tl, nzr = tx / tl;
+        cNor[i * 2] = nxr; cNor[i * 2 + 1] = nzr;
         for (var e3 = -1; e3 <= 1; e3++) { var px = cinta[i][0] + nxr * ANCHO * e3, pz = cinta[i][1] + nzr * ANCHO * e3, o3 = (i * 3 + e3 + 1) * 3; cPos[o3] = px; cPos[o3 + 1] = alturaMalla(px, pz) + 2.2; cPos[o3 + 2] = pz; }
         kmCinta[i] = cinta[i][2];
         if (i < nP - 1) { var v0 = i * 3; cIdx.push(v0, v0 + 3, v0 + 1, v0 + 1, v0 + 3, v0 + 4, v0 + 1, v0 + 4, v0 + 2, v0 + 2, v0 + 4, v0 + 5); }
+      }
+      /* la cinta se estrecha cuando la cámara está cerca (pegada a la casa parecía una explanada) y se ensancha al alejarse */
+      function anchoCinta(w) {
+        if (Math.abs(w - anchoAct) / anchoAct < 0.08) return;
+        anchoAct = w;
+        for (var j = 0; j < nP; j++) for (var s = -1; s <= 1; s += 2) {
+          var px = cinta[j][0] + cNor[j * 2] * w * s, pz = cinta[j][1] + cNor[j * 2 + 1] * w * s, o = (j * 3 + s + 1) * 3;
+          cPos[o] = px; cPos[o + 1] = alturaMalla(px, pz) + 2.2; cPos[o + 2] = pz;
+        }
+        cAtr.needsUpdate = true;
       }
       var cAtr = new THREE.BufferAttribute(cPos, 3), cInd = new THREE.Uint16BufferAttribute(cIdx, 1);
       var geoHecho = guarda(new THREE.BufferGeometry()), geoFalta = guarda(new THREE.BufferGeometry());
@@ -1130,6 +1141,8 @@
         var deSol = s.altura > -4;
         dirPase.copy(deSol ? dirSol : dirLuna);
         if (dirPase.distanceToSquared(ultPase) > 2e-6) { ultPase.copy(dirPase); pideSombra(deSol ? s.azimut : l.az, deSol ? s.altura : l.alt); }
+        // la cinta no recibe luz: de noche se apaga a mano para que no brille sobre el valle oscuro
+        cFalta.material.color.set(mezcla('#fff3dc', '#6d7384', noche)); cFalta.material.opacity = 0.62 - 0.2 * noche;
         luzV.visible = noche > 0.05; matLuz.opacity = lim(noche * 1.4, 0, 1); matHalo.opacity = noche * 0.9;
         ren.shadowMap.needsUpdate = true;
         pedir(true);
@@ -1157,6 +1170,7 @@
         cam.lookAt(r.mira[0], r.mira[1], r.mira[2]);
         cam.updateMatrixWorld();                    // los rótulos se proyectan con esta cámara
         hCam = Math.max(1, r.pos[1] - altura(r.pos[0], r.pos[2]));
+        anchoCinta(lim(hCam * 0.035, 4.5, hiDef ? 7 : 9));
         var cerca2 = lim(hCam * 0.1, 0.3, 30);
         if (Math.abs(cerca2 - cam.near) / cam.near > 0.1) { cam.near = cerca2; cam.updateProjectionMatrix(); }
         if (Math.abs(r.km - kmAnt) > 0.0005) { kmAnt = r.km; ponCinta(r.km); ponKm(r.km); }
